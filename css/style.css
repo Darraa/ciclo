@@ -80,31 +80,33 @@ h1 {
   font-weight: 700;
 }
 
-.subtitle {
+h2 {
+  color: #1C1F25;
+  font-size: calc(25px + 0.7575757576vw);
+  font-weight: 700;
+}
+
+.fist-subtitle {
   color: #E3E6EC;
   font-size: calc(14px + 0.202020202vw);
   font-weight: 400;
 }
 
-.wrapper {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
+.subtitle {
+  color: #6A6E77;
+  font-size: calc(14px + 0.202020202vw);
+  font-weight: 400;
 }
-.wrapper .line {
-  width: 5px;
-  height: 50px;
-  background: #1C1F25;
+
+.text {
+  line-height: 30px;
 }
-.wrapper .container {
+
+.wrapper .first-block {
   width: 70%;
   position: relative;
 }
-.wrapper .container__bg {
+.wrapper .first-block__bg {
   position: absolute;
   z-index: -2;
   width: 100%;
@@ -112,10 +114,72 @@ h1 {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.wrapper .container__text {
+.wrapper .first-block__title {
   display: inline-block;
   line-height: 1.2;
   padding: 12%;
+  width: 30%;
+}
+
+@media screen and (max-width: 875px) {
+  .wrapper .first-block__title {
+    width: 75%;
+  }
+}
+.text-focus-in {
+  opacity: 0;
+}
+
+.text-focus-in.active {
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.wrapper .line {
+  width: 5px;
+  height: 50px;
+  background: #1C1F25;
+}
+.wrapper .block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 70%;
+}
+.wrapper .block .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 3em;
+  width: 35%;
+}
+.wrapper .block .container__title {
+  display: inline-block;
+  line-height: 1.2;
+  width: 85%;
+}
+.wrapper .block__img {
   width: 30%;
 }
 .wrapper .num {
@@ -125,7 +189,7 @@ h1 {
 }
 
 @media screen and (max-width: 875px) {
-  .wrapper .container__text {
-    width: 75%;
+  .wrapper .block .container {
+    width: 90%;
   }
 }
