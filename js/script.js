@@ -14,37 +14,75 @@ function typeText() {
 
 typeText();
 
-
 // -----------------ANIMATION ON SCROLL--------------------
 
-const animItems = document.querySelectorAll('.anim-items');
+const animItems = document.querySelectorAll(".anim-items");
+let isIncreased = false;
 
-if(animItems.length > 0){
-    window.addEventListener('scroll', animOnscroll)
-    function animOnscroll(){
-        for(let i = 0; i < animItems.length; i++){
+if (animItems.length > 0) {
+    window.addEventListener("scroll", animOnscroll);
+    function animOnscroll() {
+        for (let i = 0; i < animItems.length; i++) {
             const animItem = animItems[i],
                 animItemHeight = animItem.offsetHeight,
                 animItemOffset = offset(animItem).top,
                 animStart = 4;
 
             let animItemPoint = window.innerHeight - animItemHeight / animStart;
-            if(animItemHeight > window.innerHeight){
-                animItemPoint = window.innerHeight - window.innerHeight / animStart;
+            if (animItemHeight > window.innerHeight) {
+                animItemPoint =
+                    window.innerHeight - window.innerHeight / animStart;
             }
 
-            if((scrollY > animItemOffset - animItemPoint) && scrollY < (animItemOffset + animItemHeight)){
-                animItem.classList.add('active');
-            } else{
-                animItem.classList.remove('active');
+            if (
+                scrollY > animItemOffset - animItemPoint &&
+                scrollY < animItemOffset + animItemHeight
+            ) {
+                animItem.classList.add("active");
+                if (!isIncreased) {
+                    increase();
+                    isIncreased = true;
+                }
+            } else {
+                if (!animItem.classList.contains("anim-stop")) {
+                    animItem.classList.remove("active");
+                }
             }
         }
     }
 
-    function offset(el){
+    function offset(el) {
         const rect = el.getBoundingClientRect(),
             scrollLeft = window.scrollX || document.documentElement.scrollLeft,
             scrollTop = window.scrollY || document.documentElement.scrollTop;
-        return {top: rect.top + scrollTop, left: rect.left + scrollLeft}
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
     }
+}
+
+// -----------------PROGRESS-BAR--------------------
+
+function increase() {
+    let SPEED = 40;
+    const limit1 = parseInt(document.getElementById("value1").innerHTML, 10);
+    const limit2 = parseInt(document.getElementById("value2").innerHTML, 10);
+
+    function animateValue1(currentValue) {
+        if (currentValue <= limit1) {
+            document.getElementById("value1").innerHTML = currentValue + "%";
+            setTimeout(function () {
+                animateValue1(currentValue + 1);
+            }, SPEED);
+        }
+    }
+
+    function animateValue2(currentValue) {
+        if (currentValue <= limit2) {
+            document.getElementById("value2").innerHTML = currentValue + "%";
+            setTimeout(function () {
+                animateValue2(currentValue + 1);
+            }, SPEED);
+        }
+    }
+    animateValue1(0);
+    animateValue2(0);
 }
