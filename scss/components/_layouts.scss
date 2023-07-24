@@ -30,6 +30,23 @@
             }
     }
 
+    .box{
+        @include flexbox($dir: column);
+        gap: 5em;
+        width: 70%;
+        &__list{
+            &-items{
+                @include flexbox($jc: space-between);
+                
+
+                li{
+                    width: 30%;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+
     .num {
         color: #E3E6EC;
         font-size: calc(25px + 35 *(100vw / 1980));
@@ -42,6 +59,17 @@
         .block {
             .container {
                 width: 90%;
+            }
+        }
+
+        .box{
+            gap: 2em;
+            &__list{
+                &-items{
+                    li{
+                        width: 90%;
+                    }
+                }
             }
         }
     }
