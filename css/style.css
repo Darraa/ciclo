@@ -259,6 +259,27 @@ h2 {
 .wrapper .block__img {
   width: 30%;
 }
+.wrapper .block__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 40%;
+}
+.wrapper .block__list-items li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2em;
+  line-height: 1.5;
+  padding-bottom: 20px;
+}
+.wrapper .block__list-items li img {
+  width: 5%;
+}
 .wrapper .box {
   display: flex;
   flex-direction: column;
@@ -288,6 +309,12 @@ h2 {
 @media screen and (max-width: 875px) {
   .wrapper .block .container {
     width: 90%;
+  }
+  .wrapper .block__list {
+    width: 90%;
+  }
+  .wrapper .block__list-items li img {
+    width: 10%;
   }
   .wrapper .box {
     gap: 2em;
