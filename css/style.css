@@ -91,6 +91,10 @@ h2 {
   font-weight: 700;
 }
 
+h3 {
+  font-size: calc(12px + 0.1515151515vw);
+}
+
 p {
   color: #6A6E77;
 }
@@ -132,6 +136,9 @@ p {
 }
 
 @media screen and (max-width: 875px) {
+  .wrapper .line__white {
+    background: #E3E6EC;
+  }
   .wrapper .first-block__title {
     width: 75%;
   }
@@ -306,6 +313,9 @@ p {
 }
 
 @media screen and (max-width: 875px) {
+  .wrapper .line__white {
+    background: #E3E6EC;
+  }
   .wrapper .last-block__bg {
     display: none;
   }
@@ -341,7 +351,7 @@ p {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 70%;
 }
 .wrapper .block .container {
@@ -367,7 +377,12 @@ p {
   gap: 2em;
 }
 .wrapper .block__img {
-  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  width: 40%;
 }
 .wrapper .block__list {
   display: flex;
@@ -401,10 +416,18 @@ p {
   padding-bottom: 20px;
   width: 70%;
 }
-.wrapper .block__item {
+.wrapper .card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 70%;
+}
+.wrapper .card__item {
   width: 30%;
 }
-.wrapper .block__item-text {
+.wrapper .card__item-text {
   line-height: 1.5;
 }
 .wrapper .box {
@@ -420,7 +443,7 @@ p {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-top: 30px;
 }
 .wrapper .box__list-items li {
@@ -449,12 +472,10 @@ p {
   font-weight: 700;
 }
 
-@media screen and (max-width: 875px) {
-  .wrapper .line__white {
-    background: #E3E6EC;
-  }
+@media screen and (max-width: 920px) {
   .wrapper .block .container {
     width: 90%;
+    gap: 0.3em;
   }
   .wrapper .block__list {
     width: 90%;
@@ -468,15 +489,33 @@ p {
   .wrapper .box {
     gap: 2em;
   }
+  .wrapper .box__list-items {
+    margin: 0;
+  }
   .wrapper .box__list-items li {
     width: 90%;
   }
+  .wrapper .box__item-img {
+    width: 25%;
+  }
 }
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 610px) {
+  .wrapper .box__list-items {
+    flex-direction: column;
+    text-align: center;
+  }
+  .wrapper .block {
+    flex-direction: column;
+  }
+  .wrapper .block__img {
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 450px) {
   .wrapper .box__item-text, .wrapper .box__item-img {
     width: 70%;
   }
-  .wrapper .block__item {
+  .wrapper .card__item {
     width: 50%;
   }
 }

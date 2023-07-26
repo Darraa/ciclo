@@ -23,6 +23,11 @@
 
 @media screen and (max-width: 875px) {
     .wrapper{
+        .line{
+            &__white{
+                background: #E3E6EC;
+            }
+        }
         .first-block{
             &__title{
                 width: 75%;

@@ -23,6 +23,10 @@ h2 {
     font-weight: 700;
 }
 
+h3{
+    font-size: calc(12px + 3 * (100vw / 1980));
+}
+
 p{
     color: #6A6E77;
 }

@@ -20,7 +20,7 @@
     }
 
     .block {
-        @include flexbox($jc: space-around, $ai: center);
+        @include flexbox($jc: space-around, $ai: center, $wrap: nowrap);
         width: 70%;
         .container {
             @include flexbox();
@@ -41,7 +41,8 @@
         }
 
             &__img{
-                width: 30%;
+                @include flexbox($wrap: nowrap, $dir: column);
+                width: 40%;
             }
 
         &__list{
@@ -71,6 +72,11 @@
             }
         }
 
+    }
+    .card{
+        @include flexbox($jc: center);
+        width: 70%;
+
         &__item{
             width: 30%;
             &-text{
@@ -84,7 +90,7 @@
         width: 70%;
         &__list{
             &-items{
-                @include flexbox($jc: space-between);
+                @include flexbox($jc: space-between, $wrap: nowrap);
                 margin-top: 30px;
 
                 li{
@@ -116,17 +122,12 @@
     }
 }
 
-@media screen and (max-width: 875px) {
+@media screen and (max-width: 920px) {
     .wrapper{
-
-        .line{
-            &__white{
-                background: #E3E6EC;
-            }
-        }
         .block {
             .container {
                 width: 90%;
+                gap: 0.3em;
             }
 
             &__list{
@@ -152,16 +153,44 @@
             gap: 2em;
             &__list{
                 &-items{
+                    margin: 0;
                     li{
                         width: 90%;
                     }
+                }
+            }
+
+            &__item{
+                &-img{
+                    width: 25%;
                 }
             }
         }
     }
 }
 
-@media screen and (max-width: 410px) {
+
+@media screen and (max-width: 610px) {
+    .wrapper{
+        .box{
+            &__list{
+                &-items{
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        }
+
+        .block{
+            flex-direction: column;
+            &__img{
+                flex-direction: row;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
     .wrapper{
         .box{
             &__item{
@@ -171,7 +200,7 @@
             }
         }
 
-        .block{
+        .card{
             &__item{
                 width: 50%;
             }
