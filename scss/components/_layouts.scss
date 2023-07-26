@@ -1,10 +1,18 @@
 @import "./first-block";
 @import "./animation";
+@import "./last-block";
+
+.fullpage-scroll{
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
 
 .wrapper {
     @include fullScreen();
     @include flexbox($ai: center, $jc: space-evenly, $wrap: nowrap);
-
+    scroll-snap-align: start;
     .line {
         width: 5px;
         height: 50px;
@@ -12,7 +20,7 @@
     }
 
     .block {
-        @include flexbox($jc: space-around);
+        @include flexbox($jc: space-around, $ai: center);
         width: 70%;
         .container {
             @include flexbox();
@@ -22,6 +30,13 @@
                 display: inline-block;
                 line-height: 1.2;
                 width: 85%;
+            }
+
+            &__counter{
+                &-list{
+                    @include flexbox();
+                    gap: 2em;
+                }
             }
         }
 
@@ -41,19 +56,36 @@
                     img{
                         width: 5%;
                     }
+                    
                 }
+            }
+
+            &-projects{
+                li{
+                    @include flexbox();
+                    gap: 1em;
+                    line-height: 1.5;
+                    padding-bottom: 20px;
+                    width: 70%;
+                }
+            }
+        }
+
+        &__item{
+            width: 30%;
+            &-text{
+                line-height: 1.5;
             }
         }
     }
 
     .box{
-        @include flexbox($dir: column);
-        gap: 5em;
+        @include flexbox($dir: column, $ai:center);
         width: 70%;
         &__list{
             &-items{
                 @include flexbox($jc: space-between);
-                
+                margin-top: 30px;
 
                 li{
                     width: 30%;
@@ -61,6 +93,20 @@
                 }
             }
         }
+
+        &__item{
+            line-height: 1.5;
+            @include flexbox($ai: center, $jc: center);
+            &-text, &-img{
+                width: 30%;
+            }
+        }
+    }
+
+    .vertical-text{
+        writing-mode: vertical-rl;
+        rotate: 180deg;
+        text-align: center;
     }
 
     .num {
@@ -72,6 +118,12 @@
 
 @media screen and (max-width: 875px) {
     .wrapper{
+
+        .line{
+            &__white{
+                background: #E3E6EC;
+            }
+        }
         .block {
             .container {
                 width: 90%;
@@ -87,6 +139,12 @@
                         }
                     }
                 }
+
+                &-projects{
+                    li{
+                        width: 100%;
+                    }
+                }
             }
         }
 
@@ -98,6 +156,24 @@
                         width: 90%;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .wrapper{
+        .box{
+            &__item{
+                &-text, &-img{
+                    width: 70%;
+                }
+            }
+        }
+
+        .block{
+            &__item{
+                width: 50%;
             }
         }
     }

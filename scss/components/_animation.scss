@@ -17,6 +17,24 @@
     animation: tracking-in-expand-fwd-bottom 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
+.tilt-in-right-1 {
+    opacity: 0;
+}
+
+.tilt-in-right-1.active {
+    -webkit-animation: tilt-in-right-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: tilt-in-right-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.tracking-in-expand-fwd-top {
+    opacity: 0;
+}
+
+.tracking-in-expand-fwd-top.active {
+    -webkit-animation: tracking-in-expand-fwd-top 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand-fwd-top 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
 @-webkit-keyframes text-focus-in {
     0% {
         -webkit-filter: blur(12px);
@@ -83,6 +101,71 @@
     }
 }
 
+@-webkit-keyframes tilt-in-right-1 {
+    0% {
+        -webkit-transform: rotateX(-30deg) translateX(300px) skewX(30deg);
+        transform: rotateX(-30deg) translateX(300px) skewX(30deg);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+        transform: rotateX(0deg) translateX(0) skewX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes tilt-in-right-1 {
+    0% {
+        -webkit-transform: rotateX(-30deg) translateX(300px) skewX(30deg);
+        transform: rotateX(-30deg) translateX(300px) skewX(30deg);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+        transform: rotateX(0deg) translateX(0) skewX(0deg);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes tracking-in-expand-fwd-top {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-700px) translateY(-500px);
+        transform: translateZ(-700px) translateY(-500px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0) translateY(0);
+        transform: translateZ(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand-fwd-top {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-700px) translateY(-500px);
+        transform: translateZ(-700px) translateY(-500px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0) translateY(0);
+        transform: translateZ(0) translateY(0);
+        opacity: 1;
+    }
+}
 
 
 // PROGRESS-BAR

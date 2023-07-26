@@ -17,10 +17,11 @@ typeText();
 // -----------------ANIMATION ON SCROLL--------------------
 
 const animItems = document.querySelectorAll(".anim-items");
+const fullpage = document.querySelector('.fullpage-scroll')
 let isIncreased = false;
 
 if (animItems.length > 0) {
-    window.addEventListener("scroll", animOnscroll);
+    fullpage.addEventListener("scroll", animOnscroll);
     function animOnscroll() {
         for (let i = 0; i < animItems.length; i++) {
             const animItem = animItems[i],
@@ -39,6 +40,11 @@ if (animItems.length > 0) {
                 scrollY < animItemOffset + animItemHeight
             ) {
                 animItem.classList.add("active");
+                countTo(80, 'counter1');
+                countTo(75, 'counter2');
+                countTo(80, 'counter3');
+                countTo(55, 'counter4');
+                countTo(95, 'counter5');
                 if (!isIncreased) {
                     increase();
                     isIncreased = true;
@@ -86,3 +92,28 @@ function increase() {
     animateValue1(0);
     animateValue2(0);
 }
+
+
+
+// -----------------COUNTER--------------------
+
+function countTo(target, elementId) {
+    let current = 0;
+    const step = Math.ceil(target / 100); 
+
+    function updateCounter() {
+        if (current < target) {
+            current += step;
+            if (current > target) {
+                current = target;
+            }
+            document.getElementById(elementId).textContent = current;
+            setTimeout(updateCounter, 10); 
+        }
+    }
+
+    updateCounter(); 
+}
+
+
+

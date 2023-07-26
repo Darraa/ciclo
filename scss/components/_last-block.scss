@@ -1,5 +1,5 @@
 .wrapper {
-    .first-block {
+    .last-block {
         width: 70%;
         position: relative;
 
@@ -9,33 +9,37 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 2;
             filter: brightness(0.8);
         }
 
-        &__title {
-            display: inline-block;
-            line-height: 1.2;
-            padding: 12%;
-            width: 30%;
+        &__list{
+            @include flexbox();
+            gap: 2em;
+            padding: 20%;
+
+            li{
+                margin: 0 auto;
+                h2, span{
+                    color: rgba(227, 230, 236, 1);
+                    text-align: center;
+                }
+            }
         }
     }
 }
 
 @media screen and (max-width: 875px) {
     .wrapper{
-        .first-block{
-            &__title{
-                width: 75%;
-            }
-
+        .last-block{
             &__bg{
                 display: none;
             }
         }
     }
 
-    .bg-first{
-        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('../../img/section-1.png');
+    .bg-last{
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('../../img/section-12.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
